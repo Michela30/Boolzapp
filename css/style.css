@@ -1,24 +1,54 @@
 @import url(general.css);
 
+body{
+    background-color: rgb(217,219,212,1);
+}
+
+.sfondo-green{
+    height: 100px;
+    background-color: #009688;
+    position: relative;
+}
+
+
+
+
 /* 
-HEADER
+Colonna left
 */
 
-/* 
-MAIN
-*/
+.header-left, .header-right{
+    height: 50px;
+    background-color: blueviolet;
+}
+aside{
+    width: 400px;
+    min-height: 400px;
+    background-color: lightcoral;
+    display: flex;
+    flex-direction: column;
+}
+.spot-notifiche{
+    height: 60px;
+    background-color: aqua;
+}
+.spot-input{
+    height: 40px;
+}
+
+
+
+
+
+
 
 /* 
-FOOTER
+Colonna right
 */
 
-
-
-
-
-
-
-
+main{
+    width: calc(1100px - 400px);
+}
 
 
 
