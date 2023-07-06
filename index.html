@@ -77,15 +77,17 @@
 
                     <div class="aside-down flex-grow-2">
                         <!-- qui ci sarà il ciclo dei contatti -->
-                        <div class="contact-item">
+                        <div class="contact-item" v-for="(singleContact, i) in contacts">
+
                             <div class="avatar-img">
-                                <img src="img/avatar_1.jpg" alt="">
+                                <img :src="singleContact.avatar" alt="">
                             </div>
+
                             <div class="d-flex justify-content-between w-100">
 
                                 <div class="name-contact">
                                     <h6>
-                                        Michele
+                                        {{singleContact.name}}
                                     </h6>
                                     <p>
                                         Ultimo messaggio inviato
@@ -97,30 +99,10 @@
                                         12:00
                                     </span>
                                 </div>
+
                             </div>
                         </div>
 
-                        <div class="contact-item">
-                            contatto
-                        </div>
-                        <div class="contact-item">
-                            contatto
-                        </div>
-                        <div class="contact-item">
-                            contatto
-                        </div>
-                        <div class="contact-item">
-                            contatto
-                        </div>
-                        <div class="contact-item">
-                            contatto
-                        </div>
-                        <div class="contact-item">
-                            contatto
-                        </div>
-                        <div class="contact-item">
-                            contatto
-                        </div>
                     </div>
 
                 </aside>
