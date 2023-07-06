@@ -11,36 +11,97 @@ body{
 }
 
 
+/* 
+General 
+*/
 
+.avatar-img{
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+}
+
+.avatar-img img{
+    width: 100%;
+    border-radius: 50%;
+}
+
+.icons{
+    color: #B1B1B1;
+}
+
+.icons > *{
+    padding-right: 10px;
+}
 
 /* 
 Colonna left
 */
+.my-name{
+    font-size: 0.8em;
+    margin-top: 10px;
+    margin-left: 5px;
+}
 
 .header-left, .header-right,footer{
     height: 50px;
-    background-color: blueviolet;
+    background-color: #EAEAEA;
 }
 aside{
     width: 400px;
-    background-color: lightcoral;
+    background-color: white;
     display: flex;
     flex-direction: column;
 }
 .spot-notifiche{
     height: 50px;
-    background-color: aqua;
+    background-color: #8EDAFC;
 }
+
+.notifiche{
+    width: 35px;
+    height: 35px;
+    margin: 5px 10px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 35px;
+    background-color: white;
+    color: #8EDAFC;
+}
+
 .spot-input{
     height: 40px;
+    background-color: #FAFAFA;
 }
 
 .contact-item{
     height: 50px;
     width: 100%;
     background-color: white;
-    border-top: 0.5px solid grey;
-    padding: 10px;
+    border-top: 0.5px solid #EAEAEA;
+    padding: 5px;
+    display: flex;
+}
+
+.name-contact{
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.name-contact > p{
+    font-size: 0.7em;
+}
+
+.name-contact > h6{
+    font-size: 0.8em;
+    font-weight: bold;
+    padding-top: 5px;
+}
+.name-contact > *{
+    line-height: 5px;
+}
+.time{
+    font-size: 0.6em;
 }
 
 
@@ -56,7 +117,7 @@ main{
 
 .central-chat{
     height: calc(580px - 100px);
-    background-color: bisque;
+    background-image: url(../img/mine.jpg);
 }
 
 .sent{
@@ -73,12 +134,14 @@ main{
     border-radius: 30px;
 }
 
+.contact-item-chat{
+    display: flex;
+}
 
-
-
-
-
-
+.icons-footer{
+    color: #6B7376;
+    padding: 12px 20px;
+}
 
 
 
