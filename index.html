@@ -77,7 +77,8 @@
 
                     <div class="aside-down flex-grow-2">
                         <!-- qui ci sarà il ciclo dei contatti -->
-                        <div class="contact-item" v-for="(singleContact, i) in contacts">
+            
+                        <div class="contact-item" v-for="(singleContact, i) in contacts" @click="switchChat(i)" :class="{'contact-item-active': singleContact.isActive}">
 
                             <div class="avatar-img">
                                 <img :src="singleContact.avatar" alt="">
@@ -104,6 +105,7 @@
                         </div>
 
                     </div>
+                    <!-- fine ciclo dei contatti -->
 
                 </aside>
 
@@ -112,13 +114,13 @@
                     <div class="header-right d-flex justify-content-between align-items-center">
                         <div class="d-flex mt-2">
                             <div class="avatar-img">
-                                <img src="img/avatar_1.jpg" alt="">
+                                <img :src="contacts[currentlyActiveIndex].avatar" alt="">
                             </div>
                             <div class="d-flex justify-content-between w-100">
 
                                 <div class="name-contact">
                                     <h6>
-                                        Michele
+                                        {{contacts[currentlyActiveIndex].name}}
                                     </h6>
                                     <p>
                                         Ultimo accesso alle 12:00
@@ -135,9 +137,21 @@
                     </div>
                 
 
-                    <!-- nella chat saranno presente i messaggi con rifinitura css -->
+                    <!-- nella chat saranno presente i messaggi -->
                     <div class="central-chat">
-                        chat
+
+                       <div v-for="(messageData, index) in contacts[currentlyActiveIndex].messages">
+
+                            <div :class="(messageData.status === 'sent') ? 'sent' : 'received' ">
+                                {{messageData.message}}
+                                <div class="date-chat">
+                                    {{messageData.date}}
+                                </div>
+                            </div>
+
+                       </div>
+
+                       
                     </div>
 
                     <footer>
@@ -150,7 +164,7 @@
                             <div class="w-100">
                                 <div class="input-group input-group-sm mt-2 px-2">
     
-                                    <input type="text" class="form-control rounded-0 border border-white" placeholder="Cerca o inizia una nuova chat">
+                                    <input type="text" class="form-control rounded-0 border border-white" placeholder="Scrivi un messaggio">
                                 </div>
                             </div>
 

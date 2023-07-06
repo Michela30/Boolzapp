@@ -4,6 +4,11 @@ Milestone 1
 dall’interlocutore (bianco) assegnando due classi CSS diverse
 ● Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare
 nome e immagine di ogni contatto
+
+Milestone 2
+● Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i
+messaggi relativi al contatto attivo all’interno del pannello della conversazione
+● Click sul contatto mostra la conversazione del contatto cliccato
 */
 
 const {createApp} = Vue;
@@ -11,11 +16,13 @@ const {createApp} = Vue;
 createApp({
     data (){
         return{
+            currentlyActiveIndex: 0,
             contacts: [
                     {
                     name: 'Michele',
                     avatar: './img/avatar_1.jpg',
                     visible: true,
+                    isActive: true,
                     messages: [
                             {
                             date: '10/01/2020 15:30:55',
@@ -35,9 +42,10 @@ createApp({
                         ],
                     },
                     {
-                        name: 'Fabio',
+                        name: 'Andrea',
                         avatar: './img/avatar_2.jpg',
                         visible: true,
+                        isActive: false,
                         messages: [
                             {
                             date: '20/03/2020 16:30:00',
@@ -60,6 +68,7 @@ createApp({
                         name: 'Samuele',
                         avatar: './img/avatar_3.jpg',
                         visible: true,
+                        isActive: false,
                         messages: [
                             {
                             date: '28/03/2020 10:10:40',
@@ -82,6 +91,7 @@ createApp({
                         name: 'Alessandro B.',
                         avatar: './img/avatar_4.jpg',
                         visible: true,
+                        isActive: false,
                         messages: [
                             {
                             date: '10/01/2020 15:30:55',
@@ -99,6 +109,7 @@ createApp({
                         name: 'Alessandro L.',
                         avatar: './img/avatar_5.jpg',
                         visible: true,
+                        isActive: false,
                         messages: [
                             {
                             date: '10/01/2020 15:30:55',
@@ -113,13 +124,14 @@ createApp({
                         ],
                     },
                     {
-                        name: 'Claudia',
-                        avatar: './img/avatar_5.jpg',
+                        name: 'Carla',
+                        avatar: './img/avatar_6.jpg',
                         visible: true,
+                        isActive: false,
                         messages: [
                             {
                             date: '10/01/2020 15:30:55',
-                            message: 'Ciao Claudia, hai novità?',
+                            message: 'Ciao Carla, hai novità?',
                             status: 'sent'
                             },
                             {
@@ -138,6 +150,7 @@ createApp({
                         name: 'Federico',
                         avatar: './img/avatar_7.jpg',
                         visible: true,
+                        isActive: false,
                         messages: [
                             {
                             date: '10/01/2020 15:30:55',
@@ -155,6 +168,7 @@ createApp({
                         name: 'Davide',
                         avatar: './img/avatar_8.jpg',
                         visible: true,
+                        isActive: false,
                         messages: [
                             {
                             date: '10/01/2020 15:30:55',
@@ -177,6 +191,13 @@ createApp({
             }
         },
         methods: {
+            switchChat(currentlyActiveIndex){
             
+                this.contacts[this.currentlyActiveIndex].isActive = false;
+                
+                this.currentlyActiveIndex = currentlyActiveIndex;
+
+                this.contacts[this.currentlyActiveIndex].isActive = true;
+            }
         }
     }).mount('#app');
