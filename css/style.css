@@ -1,0 +1,73 @@
+@import url(general.css);
+
+/* 
+HEADER
+*/
+
+/* 
+MAIN
+*/
+
+/* 
+FOOTER
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+MEDIA QUERY da Desktop first
+*/
+
+/* Tablet */
+
+@media screen and (max-width: 768px){
+
+}
+
+
+/* Mobile */
+@media screen and (max-width: 576px){
+    
+}
+
+
+
+/* 
+MEDIA QUERY da Mobile first
+*/
+
+/* Tablet */
+
+@media screen and (min-width: 768px){
+
+}
+
+
+/* Desktop */
+@media screen and (min-width: 992px){
+    
+}
+
+
