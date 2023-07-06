@@ -17,27 +17,31 @@ body{
 Colonna left
 */
 
-.header-left, .header-right{
+.header-left, .header-right,footer{
     height: 50px;
     background-color: blueviolet;
 }
 aside{
     width: 400px;
-    min-height: 400px;
     background-color: lightcoral;
     display: flex;
     flex-direction: column;
 }
 .spot-notifiche{
-    height: 60px;
+    height: 50px;
     background-color: aqua;
 }
 .spot-input{
     height: 40px;
 }
 
-
-
+.contact-item{
+    height: 50px;
+    width: 100%;
+    background-color: white;
+    border-top: 0.5px solid grey;
+    padding: 10px;
+}
 
 
 
@@ -48,6 +52,25 @@ Colonna right
 
 main{
     width: calc(1100px - 400px);
+}
+
+.central-chat{
+    height: calc(580px - 100px);
+    background-color: bisque;
+}
+
+.sent{
+    width: 100px;
+    height: 30px;
+    background-color: #D5F9BA;
+    border-radius: 30px;
+}
+
+.received{
+    width: 100px;
+    height: 30px;
+    background-color: white;
+    border-radius: 30px;
 }
 
 
