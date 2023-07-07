@@ -9,11 +9,6 @@
     margin: 0 auto;
     max-width: 1100px;
     height: 580px;
-    position: absolute;
     display: flex;
-    top: 20px;
-    left: 10px;
-    bottom: 20px;
-    right: 10px;
-    z-index: 4;
+    padding-top: 20px;
 }

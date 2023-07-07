@@ -1,13 +1,9 @@
 @import url(general.css);
 
 body{
-    background-color: rgb(217,219,212,1);
-}
-
-.sfondo-green{
-    height: 100px;
-    background-color: #009688;
-    position: relative;
+    height: 100vh;
+    background: rgb(0,150,136);
+    background: linear-gradient(180deg, rgba(0,150,136,1) 20%, rgba(217,219,212,1) 20%);
 }
 
 
@@ -35,7 +31,7 @@ General
 }
 
 /* 
-Colonna left
+Aside
 */
 .my-name{
     font-size: 0.8em;
@@ -49,9 +45,16 @@ Colonna left
 }
 aside{
     width: 400px;
+    height: 580px;
+    min-height: 200px;
     background-color: white;
     display: flex;
     flex-direction: column;
+}
+
+.aside-down{
+    height: calc(580px - 140px);
+    overflow-y: scroll;
 }
 .spot-notifiche{
     height: 50px;
@@ -115,7 +118,7 @@ aside{
 
 
 /* 
-Colonna right
+Main section
 */
 
 main{
@@ -126,6 +129,7 @@ main{
     padding: 20px;
     height: calc(580px - 100px);
     background-image: url(../img/mine.jpg);
+    overflow-y: scroll;
 }
 
 .sent{

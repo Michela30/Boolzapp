@@ -21,9 +21,6 @@
     </head>
 <body>
 
-    <div class="sfondo-green">
-
-    </div>
         <div id="app">
 
             <div class="general-container">
@@ -150,8 +147,6 @@
                             </div>
 
                        </div>
-
-                       
                     </div>
 
                     <footer>
@@ -160,11 +155,12 @@
                             <div class="icons-footer">
                                 <i class="fa-regular fa-face-smile"></i>
                             </div>
-
+                    
+                            <!-- intercettare l'evento al tasto enter -->
                             <div class="w-100">
                                 <div class="input-group input-group-sm mt-2 px-2">
     
-                                    <input type="text" class="form-control rounded-0 border border-white" placeholder="Scrivi un messaggio">
+                                    <input @keyup.enter="newMessageSent()" :v-model="newMessage" type="text" class="form-control rounded-0 border border-white" placeholder="Scrivi un messaggio">
                                 </div>
                             </div>
 
