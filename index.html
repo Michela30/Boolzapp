@@ -60,22 +60,23 @@
                                     </p>  
                                 </div>
                         </div>
+                        <!-- input cerca contatti -->
                         <div class="spot-input">
                             <div class="input-group input-group-sm mt-2 px-2">
                                 <span class="input-group-text bg-white rounded-0 border border-white" id="inputGroup-sizing-sm">
                                     <i class="fa-solid fa-magnifying-glass"></i>
                                 </span>
 
-                                <input type="text" class="form-control rounded-0 border border-white" placeholder="Cerca o inizia una nuova chat">
+                                <input v-model="searchName" @input="searchContacts()" type="text" class="form-control rounded-0 border border-white" placeholder="Cerca o inizia una nuova chat">
                             </div>
                         </div>
 
                     </div>
 
                     <div class="aside-down flex-grow-2">
-                        <!-- qui ci sarà il ciclo dei contatti -->
+                        <!-- ciclo dei contatti -->
             
-                        <div class="contact-item" v-for="(singleContact, i) in contacts" @click="switchChat(i)" :class="{'contact-item-active': singleContact.isActive}">
+                        <div class="contact-item" v-for="(singleContact, i) in contacts" @click="switchChat(i)" :class="{'contact-item-active': singleContact.isActive, 'd-none': !singleContact.visible}">
 
                             <div class="avatar-img">
                                 <img :src="singleContact.avatar" alt="">
@@ -105,6 +106,7 @@
                     <!-- fine ciclo dei contatti -->
 
                 </aside>
+                <!-- fine colonna sx contatti -->
 
                 <!-- colonna dx-chat -->
                 <main>
@@ -134,13 +136,27 @@
                     </div>
                 
 
-                    <!-- nella chat saranno presente i messaggi -->
+                    <!-- chat dei messaggi -->
                     <div class="central-chat">
 
                        <div v-for="(messageData, index) in contacts[currentlyActiveIndex].messages">
 
                             <div :class="(messageData.status === 'sent') ? 'sent' : 'received' ">
                                 {{messageData.message}}
+
+                                <div class="dropdown">
+                                    <a type="button" class="" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </a>
+                                    <ul class="dropdown-menu position-absolute top-0 end-0">
+                                        <li @click="removeMessage(index)">
+                                            <a class="dropdown-item" href="#">Delete message</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                
+
                                 <div class="date-chat">
                                     {{messageData.date}}
                                 </div>
@@ -156,7 +172,7 @@
                                 <i class="fa-regular fa-face-smile"></i>
                             </div>
                     
-                            <!-- intercettare l'evento al tasto enter -->
+                            <!-- intercettare l'evento al tasto enter, invia nuovo sms -->
                             <div class="w-100">
                                 <div class="input-group input-group-sm mt-2 px-2">
     

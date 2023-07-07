@@ -134,10 +134,9 @@ main{
 
 .sent{
     width: 270px;
-    height: 50px;
     background-color: #D5F9BA;
     border-radius: 10px;
-    padding: 5px 10px;
+    padding: 10px 10px;
     margin-left: 350px;
     margin-top: 10px;
     font-size: 0.8em;
@@ -146,10 +145,9 @@ main{
 
 .received{
     width: 270px;
-    height: 50px;
     background-color: white;
     border-radius: 10px;
-    padding: 5px 10px;
+    padding: 10px 10px;
     margin-left: 30px;
     font-size: 0.8em;
     position: relative;
@@ -171,9 +169,14 @@ main{
     right: 5px;
 }
 
-
-
-
+.fa-chevron-down{
+    color: black;
+    font-size: 0.8em;
+    position: absolute;
+    top: -30px;
+    right: 0;
+    padding: 0;
+}
 
 
 

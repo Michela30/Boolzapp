@@ -15,6 +15,11 @@ Milestone 3
 “enter” il testo viene aggiunto al thread sopra, come messaggio verde
 ● Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà
 un “ok” come risposta, che apparirà dopo 1 secondo.
+
+Milestone 4
+● Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i
+contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo
+“mar” rimangono solo Marco e Martina)
 */
 
 const {createApp} = Vue;
@@ -25,6 +30,7 @@ createApp({
             currentlyActiveIndex: 0,
             newMessage: '',
             sayOk: 'Ok',
+            searchName: '',
             contacts: [
                     {
                     name: 'Michele',
@@ -217,19 +223,30 @@ createApp({
                         message: this.newMessage,
                         status: 'sent'});
 
-                    this.newMessage = '';
-
+                        this.newMessage = '';
+                        
                     setTimeout(() => {
                         this.contacts[this.currentlyActiveIndex].messages.push({
                             date: '10/01/2020 15:51:00',
                             message: this.sayOk,
                             status: 'received'})
-                    }, 1000);
-                }
-               
-            },
+                        }, 1000);
+                    }
+                    
+                },
             searchContacts(){
-                
+                console.log(this.searchName)
+            
+                for(let i = 0; i < this.contacts.length; i++){
+                    this.contacts[i].visible = false
+                    if(this.contacts[i].name.toLowerCase().includes(this.searchName.toLowerCase())){
+                        this.contacts[i].visible = true
+                    }
+                }
+            },
+            removeMessage(index){
+                this.contacts[this.currentlyActiveIndex].messages.splice(index,1)
             }
         }
     }).mount('#app');
+    
