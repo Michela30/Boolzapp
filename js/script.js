@@ -24,7 +24,7 @@ createApp({
         return{
             currentlyActiveIndex: 0,
             newMessage: '',
-            sayOk: 'ok',
+            sayOk: 'Ok',
             contacts: [
                     {
                     name: 'Michele',
@@ -219,16 +219,17 @@ createApp({
 
                     this.newMessage = '';
 
-                    setTimeout(newReceivedMessage, 1000);
-                    
-                    function newReceivedMessage(){ 
+                    setTimeout(() => {
                         this.contacts[this.currentlyActiveIndex].messages.push({
                             date: '10/01/2020 15:51:00',
                             message: this.sayOk,
                             status: 'received'})
-                        }
+                    }, 1000);
                 }
                
             },
+            searchContacts(){
+                
+            }
         }
     }).mount('#app');
