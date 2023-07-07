@@ -24,6 +24,7 @@ createApp({
         return{
             currentlyActiveIndex: 0,
             newMessage: '',
+            sayOk: 'ok',
             contacts: [
                     {
                     name: 'Michele',
@@ -208,14 +209,26 @@ createApp({
             },
             newMessageSent(){
                 console.log('ho cliccato enter')
+                console.log(this.newMessage)
                 if(this.newMessage != ''){
 
-                    this.contacts.messages.push([{date: '10/01/2020 15:51:00',
-                            message: this.newMessage,
-                            status: 'sent'}]);
+                    this.contacts[this.currentlyActiveIndex].messages.push({
+                        date: '10/01/2020 15:51:00',
+                        message: this.newMessage,
+                        status: 'sent'});
 
-                    this.newMessage = ''; 
+                    this.newMessage = '';
+
+                    setTimeout(newReceivedMessage, 1000);
+                    
+                    function newReceivedMessage(){ 
+                        this.contacts[this.currentlyActiveIndex].messages.push({
+                            date: '10/01/2020 15:51:00',
+                            message: this.sayOk,
+                            status: 'received'})
+                        }
                 }
-            }
+               
+            },
         }
     }).mount('#app');

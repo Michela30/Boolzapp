@@ -130,6 +130,7 @@ main{
     height: calc(580px - 100px);
     background-image: url(../img/mine.jpg);
     overflow-y: scroll;
+
 }
 
 .sent{
