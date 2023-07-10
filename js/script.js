@@ -298,8 +298,6 @@ createApp({
                 this.contacts[this.currentlyActiveIndex].isActive = true;
             },
             newMessageSent(){
-                console.log('ho cliccato enter')
-                console.log(this.newMessage)
                 if(this.newMessage != ''){
                     
                     this.contacts[this.currentlyActiveIndex].messages.push({
@@ -319,7 +317,6 @@ createApp({
                     
             },
             searchContacts(){
-                console.log(this.searchName)
             
                 for(let i = 0; i < this.contacts.length; i++){
                     this.contacts[i].visible = false
@@ -344,7 +341,6 @@ createApp({
                 const totalDate = `${day}/${month}/${year}
                 ${hours}:${minutes}:${second}`
 
-                console.log(totalDate)
                 return totalDate;
             }
         }
