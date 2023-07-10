@@ -32,7 +32,7 @@
                         <div class="d-flex justify-content-between header-left align-items-center">
 
                             <div class="avatar-img d-flex">
-                                <img src="img/avatar_io.jpg" alt="">
+                                <img :src="mioAvatar" alt="">
                                 <span class="my-name">
                                     Michela
                                 </span>
@@ -87,6 +87,7 @@
                                 <div class="name-contact">
                                     <h6>
                                         {{singleContact.name}}
+                                        
                                     </h6>
                                     <p>
                                         {{singleContact.messages[singleContact.messages.length-1].message}}
@@ -97,6 +98,10 @@
                                     <span class="time">
                                         12:00
                                     </span>
+
+                                    <div class="not-sound-chat ps-2" v-if="singleContact.silent">
+                                        <i class="fa-solid fa-volume-xmark"></i>
+                                    </div>
                                 </div>
 
                             </div>
@@ -140,11 +145,28 @@
                     <div class="central-chat">
 
                        <div v-for="(messageData, index) in contacts[currentlyActiveIndex].messages">
+                           
+                           <div class="dropdown">
 
-                            <div :class="(messageData.status === 'sent') ? 'sent' : 'received' ">
-                                {{messageData.message}}
+                                <div :class="(messageData.status === 'sent') ? 'sent' : 'received' ">
 
-                                <div class="dropdown">
+                                    <div class="pb-1" :class="{
+                                        'text-warning' : messageData.nameFamily == 'Mamma',
+                                        'text-info' : messageData.nameFamily == 'Papà',
+                                        'text-danger' : messageData.nameFamily == 'Valerio',
+                                        'text-success' : messageData.nameFamily == 'Io',
+                                        'text-danger-emphasis' : messageData.nameFamily == 'Ramona',
+                                        'text-primary' : messageData.nameFamily == 'Isabella'
+                                    }">
+                                        {{messageData.nameFamily}}
+                                    </div>
+                                    
+                                        {{messageData.message}}
+
+                                    <div class="date-chat">
+                                        {{messageData.date}}
+                                    </div>
+
                                     <a type="button" class="" data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="fa-solid fa-chevron-down"></i>
                                     </a>
@@ -155,11 +177,6 @@
                                     </ul>
                                 </div>
 
-                                
-
-                                <div class="date-chat">
-                                    {{messageData.date}}
-                                </div>
                             </div>
 
                        </div>
