@@ -89,9 +89,12 @@
                                         {{singleContact.name}}
                                         
                                     </h6>
-                                    <p>
+                                    <p v-if="singleContact.messages.length > 0">
                                         {{singleContact.messages[singleContact.messages.length-1].message}}
-                                    </p>  
+                                    </p> 
+                                    <p v-else>
+                                        Non ci sono messaggi
+                                    </p>
                                 </div>
 
                                 <div>

@@ -301,7 +301,7 @@ createApp({
                 console.log('ho cliccato enter')
                 console.log(this.newMessage)
                 if(this.newMessage != ''){
-
+                    
                     this.contacts[this.currentlyActiveIndex].messages.push({
                         date: '10/01/2020 15:51:00',
                         message: this.newMessage,
