@@ -73,8 +73,8 @@
 
                     </div>
 
+                    <!-- ciclo dei contatti -->
                     <div class="aside-down flex-grow-2">
-                        <!-- ciclo dei contatti -->
             
                         <div class="contact-item" v-for="(singleContact, i) in contacts" @click="switchChat(i)" :class="{'contact-item-active': singleContact.isActive, 'd-none': !singleContact.visible}">
 
@@ -89,7 +89,7 @@
                                         {{singleContact.name}}
                                     </h6>
                                     <p>
-                                        Ultimo messaggio inviato
+                                        {{singleContact.messages[singleContact.messages.length-1].message}}
                                     </p>  
                                 </div>
 
