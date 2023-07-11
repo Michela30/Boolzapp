@@ -338,8 +338,7 @@ createApp({
                 let minutes = currentdate.getMinutes();
                 let second = currentdate.getSeconds();
 
-                const totalDate = `${day}/${month}/${year}
-                ${hours}:${minutes}:${second}`
+                const totalDate = `${hours}:${minutes}`
 
                 return totalDate;
             }
